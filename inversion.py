@@ -130,6 +130,11 @@ def exact_inversion(
     )
     text_embeddings = torch.cat([text_embeddings_tuple[1], text_embeddings_tuple[0]])
 
+    ### 1. Convert prompt to text embeddings A.
+    ### 2. Use to get text response and convert to text embeddings B.
+    ### 3. Generate image based on text embeddings in B.
+    ### 4. image = transform_img(image).unsqueeze(0).to(text_embeddings.dtype).to(device)
+
     # image to latent
     image = transform_img(image).unsqueeze(0).to(text_embeddings.dtype).to(device)
     if decoder_inv:
