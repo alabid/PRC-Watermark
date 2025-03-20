@@ -117,6 +117,7 @@ for i in tqdm(range(test_num)):
             init_latents, _, _ = tr_get_noise(shape, from_file=tr_key, keys_path='keys/')
         else:
             raise NotImplementedError
+    print("prompt={0}, i={1}".format(current_prompt, i))
     orig_image, _, _ = generate(prompt=current_prompt,
                                 init_latents=init_latents,
                                 num_inference_steps=args.inf_steps,
