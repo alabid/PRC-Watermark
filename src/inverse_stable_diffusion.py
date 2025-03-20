@@ -438,7 +438,8 @@ class InversableStableDiffusionPipeline(ModifiedStableDiffusionPipeline):
         optimizer = torch.optim.Adam([z], lr=0.1)
         lr_scheduler = get_cosine_schedule_with_warmup(optimizer, num_warmup_steps=10, num_training_steps=100)
 
-        for i in self.progress_bar(range(100)):
+        for i in self.progress_bar(range(15)):
+            print("in decoding stage: i={0}".format(i))
             x_pred = self.decode_image_for_gradient_float(z)
 
             loss = loss_function(x_pred, input)
