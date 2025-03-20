@@ -165,6 +165,7 @@ class ModifiedStableDiffusionPipeline(StableDiffusionPipeline):
         num_warmup_steps = len(timesteps) - num_inference_steps * self.scheduler.order
         with self.progress_bar(total=num_inference_steps) as progress_bar:
             for i, t in enumerate(timesteps):
+                print("in denoising step (i, t) = ({0}, {1})".format(i, t))
                 # add watermark
                 if watermarking_mask is not None:
                     latents[watermarking_mask] += watermarking_delta * torch.sign(latents[watermarking_mask])
