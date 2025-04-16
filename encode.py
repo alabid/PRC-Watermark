@@ -15,7 +15,6 @@ from inversion import stable_diffusion_pipe, generate
 
 parser = argparse.ArgumentParser('Args')
 parser.add_argument('--test_num', type=int, default=10)
-parser.add_argument('--test_num', type=int, default=2)
 parser.add_argument('--method', type=str, default='prc') # gs, tr, prc
 parser.add_argument('--model_id', type=str, default='stabilityai/stable-diffusion-2-1-base')
 parser.add_argument('--dataset_id', type=str, default='Gustavosta/Stable-Diffusion-Prompts') # coco 
