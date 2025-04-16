@@ -14,7 +14,7 @@ from src.baseline.treering_watermark import tr_detect, tr_get_noise
 from inversion import stable_diffusion_pipe, generate
 
 parser = argparse.ArgumentParser('Args')
-#parser.add_argument('--test_num', type=int, default=10)
+parser.add_argument('--test_num', type=int, default=10)
 parser.add_argument('--test_num', type=int, default=2)
 parser.add_argument('--method', type=str, default='prc') # gs, tr, prc
 parser.add_argument('--model_id', type=str, default='stabilityai/stable-diffusion-2-1-base')
@@ -27,7 +27,7 @@ parser.add_argument('--prc_t', type=int, default=3)
 args = parser.parse_args()
 print(args)
 
-hf_cache_dir = '/home/ubuntu/PRC-Watermark/hf_models'
+hf_cache_dir = '/u/alabid/PRC-Watermark/hf_models'
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 n = 4 * 64 * 64  # the length of a PRC codeword
 method = args.method
